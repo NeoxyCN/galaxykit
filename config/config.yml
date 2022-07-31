@@ -1,0 +1,6 @@
+#语言 为了防止某些情况下可能发生的乱码，我默认是en-US了，在S3里直接改成zh-CN，应该没有太大问题。
+# zh-CN 中文（简体）en-US 英语（美国）
+language: en-US
+
+#下面是还没实现的配置
+auto-update: false
