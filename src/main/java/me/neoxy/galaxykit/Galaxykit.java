@@ -5,10 +5,10 @@ import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.command.CommandExecuteEvent;
 import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
 import com.velocitypowered.api.plugin.Plugin;
+import com.velocitypowered.api.proxy.ConsoleCommandSource;
+import com.velocitypowered.api.proxy.Player;
 import com.velocitypowered.api.proxy.ProxyServer;
-import net.kyori.adventure.text.Component;
 import org.slf4j.Logger;
-import me.neoxy.galaxykit.MessageMan;
 
 @Plugin(
         id = "galaxykit",
@@ -18,7 +18,7 @@ import me.neoxy.galaxykit.MessageMan;
         authors = {"Neoxy"}
 )
 public class Galaxykit {
-    private final ProxyServer server;
+    public final ProxyServer server;
     private final Logger logger;
 
     @Inject
@@ -30,14 +30,18 @@ public class Galaxykit {
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) {
         logger.info("GalaxyKit has been initialized。");
-        //server.getEventManager().register(this,new );
+        Config config = new Config();
+        logger.info(config.loadConfig());
     }
 
     @Subscribe
     public void onCommandExecute(CommandExecuteEvent event) {
-        //logger.info(event.getCommand().toString());
-        event.setResult(CommandExecuteEvent.CommandResult.denied());
-        MessageMan m = new MessageMan();
-        m.sendPlayerMessage(event.getCommandSource(),"Your command has been denied, becaused you don not have the permission to do that.");
+        if (event.getCommandSource() instanceof ConsoleCommandSource) {
+            //logger.info("console");
+        } else if (event.getCommandSource() instanceof Player) {
+            event.setResult(CommandExecuteEvent.CommandResult.denied());
+            MessageMan m = new MessageMan();
+            m.sendPlayerMessage(event.getCommandSource(), "Your command has been denied, becaused you don not have the permission to do that.");
+        }
     }
 }

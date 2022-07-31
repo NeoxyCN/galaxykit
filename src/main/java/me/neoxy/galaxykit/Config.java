@@ -1,22 +1,23 @@
 package me.neoxy.galaxykit;
 
-import org.yaml.snakeyaml.Yaml;
-
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 
+import me.neoxy.galaxykit.Galaxykit;
 
 public class Config {
-    public void loadConfig(){
-        try{
-            BufferedReader i= new BufferedReader(new FileReader("./plugins/galaxykit/config.yml"));
-            //Array
-            String content=i.readLine();
-        }
-        catch(Exception e){
+    public String loadConfig() {
+        String content = "";
+        StringBuffer raw = new StringBuffer();
+        try {
+            BufferedReader i = new BufferedReader(new FileReader("./plugins/galaxykit/config.yml"));
+            while ((content = i.readLine()) != null) {
+                raw.append(content);
+            }
+
+        } catch (Exception e) {
 
         }
+        return (raw.toString());
     }
 }
