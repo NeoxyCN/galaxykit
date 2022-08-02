@@ -30,8 +30,8 @@ public class Galaxykit {
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) {
         logger.info("GalaxyKit has been initialized。");
-        Config config = new Config();
-        logger.info(config.loadConfig());
+        //Config config = new Config();
+        //logger.info(config.loadConfig());
     }
 
     @Subscribe
@@ -39,9 +39,15 @@ public class Galaxykit {
         if (event.getCommandSource() instanceof ConsoleCommandSource) {
             //logger.info("console");
         } else if (event.getCommandSource() instanceof Player) {
-            event.setResult(CommandExecuteEvent.CommandResult.denied());
-            MessageMan m = new MessageMan();
-            m.sendPlayerMessage(event.getCommandSource(), "Your command has been denied, becaused you don not have the permission to do that.");
+            //TODO 权限控制从这里开始
+            PermissionControl pc = new PermissionControl();
+            String groupName = (pc.checkGroupByUsername("username"));
+            Boolean status = (pc.checkAvaByGroupAndCmd(groupName, event.getCommand()));
+            if (!status) {
+                event.setResult(CommandExecuteEvent.CommandResult.denied());
+                MessageMan m = new MessageMan();
+                m.sendPlayerMessage(event.getCommandSource(), "Your command has been denied, becaused you don not have the permission to do that.");
+            }
         }
     }
 }

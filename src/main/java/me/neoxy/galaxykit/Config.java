@@ -1,23 +1,11 @@
 package me.neoxy.galaxykit;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-
-import me.neoxy.galaxykit.Galaxykit;
+import com.moandjiezana.toml.Toml;
+import me.neoxy.galaxykit.NeoIO;
 
 public class Config {
-    public String loadConfig() {
-        String content = "";
-        StringBuffer raw = new StringBuffer();
-        try {
-            BufferedReader i = new BufferedReader(new FileReader("./plugins/galaxykit/config.yml"));
-            while ((content = i.readLine()) != null) {
-                raw.append(content);
-            }
-
-        } catch (Exception e) {
-
-        }
-        return (raw.toString());
+    public Toml loadConfig() {
+        //return ((new NeoIO()).loadFile("./plugins/galaxykit/config.yml"));
+        return (new NeoIO().loadToml("./plugins/galaxykit/config.toml"));
     }
 }

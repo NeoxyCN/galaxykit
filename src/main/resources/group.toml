@@ -1,0 +1,12 @@
+group=[
+    "admin",
+    "default",
+]
+
+admin=[
+    "NeoxyCN"
+]
+
+default=[
+    "user1"
+]
