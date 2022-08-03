@@ -33,7 +33,11 @@ public class NeoIO {
         return (new File(path));
     }
 
-    public Toml loadToml(String path){
+    public Toml loadToml(String path) {
         return (new Toml().read(new NeoIO().simpleFileLoad(path)));
+    }
+
+    public void loadLang(String path) {
+
     }
 }

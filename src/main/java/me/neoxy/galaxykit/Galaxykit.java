@@ -13,7 +13,7 @@ import org.slf4j.Logger;
 @Plugin(
         id = "galaxykit",
         name = "GalaxyKit",
-        version = "1.0-SNAPSHOT",
+        version = "1.0.0-SNAPSHOT",
         description = "Plugin for ALLSTARS S3",
         authors = {"Neoxy"}
 )
@@ -45,7 +45,7 @@ public class Galaxykit {
             //TODO 权限控制从这里开始
             PermissionControl pc = new PermissionControl(logger);
             String groupName = (pc.checkGroupByUsername("username"));
-            Boolean status = (pc.checkAvaByGroupAndCmd(groupName, event.getCommand()));
+            Boolean status = (pc.checkAvaByGroupAndCmd(groupName, new CommandMan().Analyze(event.getCommand())));
             if (!status) {
                 event.setResult(CommandExecuteEvent.CommandResult.denied());
                 MessageMan m = new MessageMan();
