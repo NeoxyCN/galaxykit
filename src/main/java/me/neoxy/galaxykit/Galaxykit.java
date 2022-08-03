@@ -37,10 +37,11 @@ public class Galaxykit {
     @Subscribe
     public void onCommandExecute(CommandExecuteEvent event) {
         PermissionControl ppp = new PermissionControl(logger);
-        logger.info(ppp.checkGroupByUsername("NeoxyCN"));
+        logger.info(ppp.checkCmdByGroup("admin"));
         if (event.getCommandSource() instanceof ConsoleCommandSource) {
-            //logger.info("console");
+            //Console execute command
         } else if (event.getCommandSource() instanceof Player) {
+            //Player execute command
             //TODO 权限控制从这里开始
             PermissionControl pc = new PermissionControl(logger);
             String groupName = (pc.checkGroupByUsername("username"));

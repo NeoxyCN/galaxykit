@@ -7,4 +7,9 @@ public class MessageMan {
     public void sendPlayerMessage(CommandSource player, String content) {
         player.sendMessage(Component.text(content));
     }
+
+    public void playerJoin() {
+
+    }
+
 }
