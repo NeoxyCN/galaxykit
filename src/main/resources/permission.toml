@@ -1,9 +1,9 @@
-default =[
+default = [
     "help",
     "tp",
 ]
 
-admin=[
+admin = [
     "ban",
     "banip",
 ]

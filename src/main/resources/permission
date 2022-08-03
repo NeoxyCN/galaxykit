@@ -1,11 +1,11 @@
-help: 1
-ability: 2
-advancement: 3
-alwaysday: 4
-attribute: 5
-ban: 6
-ban-ip: 7
-banlist: 8
+help
+ability
+advancement
+alwaysday
+attribute
+ban
+ban-ip
+banlist
 bossbar
 camerashake
 changesetting

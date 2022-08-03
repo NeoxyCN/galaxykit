@@ -1,12 +1,12 @@
-group=[
+group = [
     "admin",
     "default",
 ]
 
-admin=[
+admin = [
     "NeoxyCN"
 ]
 
-default=[
+default = [
     "user1"
 ]
