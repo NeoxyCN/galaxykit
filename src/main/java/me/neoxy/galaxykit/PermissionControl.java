@@ -44,6 +44,9 @@ public class PermissionControl {
 
     //依据组和命令 查询是否能用这个命令
     public boolean checkAvaByGroupAndCmd(String group, String command) {
+        if (group.equals("admin")) {
+            return true;
+        }
         Toml tom = (new NeoIO().loadToml("./plugins/galaxykit/permission.toml"));
         List<Object> permissionList = tom.getList(group);
         if (permissionList.contains(command)) {

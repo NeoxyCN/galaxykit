@@ -3,11 +3,15 @@ package me.neoxy.galaxykit;
 import com.google.inject.Inject;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.command.CommandExecuteEvent;
+import com.velocitypowered.api.event.connection.DisconnectEvent;
+import com.velocitypowered.api.event.player.PlayerChatEvent;
+import com.velocitypowered.api.event.player.ServerConnectedEvent;
 import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
 import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.proxy.ConsoleCommandSource;
 import com.velocitypowered.api.proxy.Player;
 import com.velocitypowered.api.proxy.ProxyServer;
+import net.kyori.adventure.text.Component;
 import org.slf4j.Logger;
 
 @Plugin(
@@ -27,6 +31,8 @@ public class Galaxykit {
         this.logger = logger;
     }
 
+    //public void
+
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) {
         logger.info("GalaxyKit has been initialized。");
@@ -35,9 +41,66 @@ public class Galaxykit {
     }
 
     @Subscribe
+    public void onPlayerSendMessage(PlayerChatEvent event) {
+        event.setResult(PlayerChatEvent.ChatResult.denied());
+        Player player = event.getPlayer();
+        String m = String.format("[%s][%s]%s",
+                player.getCurrentServer().get().getServer().getServerInfo().getName(),
+                player.getUsername(),
+                event.getMessage()
+        );
+        server.getAllPlayers().forEach(s -> s.sendMessage(Component.text(m)));
+    }
+
+    @Subscribe
+    public void onPlayerJoinServer(ServerConnectedEvent event) {
+        Player player = event.getPlayer();
+        String preServer = null;
+        String nowServer = player.getCurrentServer().get().getServer().getServerInfo().getName();
+        try {
+            preServer = event.getPreviousServer().get().getServerInfo().getName();
+
+        } catch (Exception error) {
+
+        }
+        if (preServer == null) {
+            //不存在上一个服务器
+            String m = String.format("[%s]%s joined %s",
+                    nowServer,
+                    player.getUsername(),
+                    nowServer
+            );
+            server.getAllPlayers().forEach(s -> s.sendMessage(Component.text(m)));
+            player.sendMessage(Component.text(m));
+
+        } else {
+            String m = String.format("[%s]%s switched %s from %s",
+                    nowServer,
+                    player.getUsername(),
+                    nowServer,
+                    preServer
+            );
+            server.getAllPlayers().forEach(s -> s.sendMessage(Component.text(m)));
+            player.sendMessage(Component.text(m));
+        }
+
+    }
+
+    @Subscribe
+    public void onPlayerDisconnect(DisconnectEvent event) {
+        Player player = event.getPlayer();
+        String m = String.format("[ALLSTARS]%s left server",
+                player.getUsername()
+        );
+        server.getAllPlayers().forEach(s -> s.sendMessage(Component.text(m)));
+    }
+
+    @Subscribe
     public void onCommandExecute(CommandExecuteEvent event) {
-        PermissionControl ppp = new PermissionControl(logger);
-        logger.info(ppp.checkCmdByGroup("admin"));
+
+        //logger.info();
+        //PermissionControl ppp = new PermissionControl(logger);
+        //logger.info(ppp.checkCmdByGroup("admin"));
         if (event.getCommandSource() instanceof ConsoleCommandSource) {
             //Console execute command
         } else if (event.getCommandSource() instanceof Player) {
