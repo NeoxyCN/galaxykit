@@ -17,7 +17,7 @@ import org.slf4j.Logger;
 @Plugin(
         id = "galaxykit",
         name = "GalaxyKit",
-        version = "1.0.0-SNAPSHOT",
+        version = "1.0.1-SNAPSHOT",
         description = "Plugin for ALLSTARS S3",
         authors = {"Neoxy"}
 )
