@@ -17,7 +17,7 @@ import org.slf4j.Logger;
 @Plugin(
         id = "galaxykit",
         name = "GalaxyKit",
-        version = "1.0.1-SNAPSHOT",
+        version = "1.0.2",
         description = "Plugin for ALLSTARS S3",
         authors = {"Neoxy"}
 )
@@ -39,7 +39,7 @@ public class Galaxykit {
         //Config config = new Config();
         //logger.info(config.loadConfig());
     }
-
+/*
     @Subscribe
     public void onPlayerSendMessage(PlayerChatEvent event) {
         event.setResult(PlayerChatEvent.ChatResult.denied());
@@ -51,6 +51,8 @@ public class Galaxykit {
         );
         server.getAllPlayers().forEach(s -> s.sendMessage(Component.text(m)));
     }
+
+ */
 
     @Subscribe
     public void onPlayerJoinServer(ServerConnectedEvent event) {
