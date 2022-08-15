@@ -32,13 +32,13 @@ public class Galaxykit {
     public Galaxykit(ProxyServer server, Logger logger) {
         this.server = server;
         this.logger = logger;
+        Initialization.Init(logger);
     }
 
     //public void
 
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) {
-        logger.info("GalaxyKit has been initialized。");
         //Config config = new Config();
         //logger.info(config.loadConfig());
     }

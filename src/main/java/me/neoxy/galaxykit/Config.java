@@ -21,6 +21,7 @@ public class Config {
     //这里是直接加载config.toml中的一个Key（大概叫这个名字吧
     public String loadKey(String keyName) {
         try {
+            /*
             switch (keyName) {
                 case "auto-update":
                     break;
@@ -28,7 +29,8 @@ public class Config {
                     break;
                 case "channel":
                     break;
-            }
+            }*/
+            return t.getString(keyName);
         } catch (Exception e) {
 
         }
