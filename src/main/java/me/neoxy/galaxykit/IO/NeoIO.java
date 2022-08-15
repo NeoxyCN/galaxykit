@@ -1,4 +1,4 @@
-package me.neoxy.galaxykit.io;
+package me.neoxy.galaxykit.IO;
 
 import com.moandjiezana.toml.Toml;
 

@@ -10,10 +10,10 @@ import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.proxy.ConsoleCommandSource;
 import com.velocitypowered.api.proxy.Player;
 import com.velocitypowered.api.proxy.ProxyServer;
-import me.neoxy.galaxykit.man.CommandMan;
-import me.neoxy.galaxykit.man.MessageMan;
-import me.neoxy.galaxykit.man.PermissionControl;
-import me.neoxy.galaxykit.utils.i18n;
+import me.neoxy.galaxykit.Man.CommandMan;
+import me.neoxy.galaxykit.Man.MessageMan;
+import me.neoxy.galaxykit.Man.PermissionControl;
+import me.neoxy.galaxykit.Utils.i18n;
 import net.kyori.adventure.text.Component;
 import org.slf4j.Logger;
 

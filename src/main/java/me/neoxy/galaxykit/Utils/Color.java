@@ -1,4 +1,4 @@
-package me.neoxy.galaxykit.utils;
+package me.neoxy.galaxykit.Utils;
 
 public class Color {
     public final static String COLOR_BLACK = "§0";

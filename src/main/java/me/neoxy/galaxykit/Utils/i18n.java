@@ -1,4 +1,4 @@
-package me.neoxy.galaxykit.utils;
+package me.neoxy.galaxykit.Utils;
 
 public class i18n {
     // info1 - Init

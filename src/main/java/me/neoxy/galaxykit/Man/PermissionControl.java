@@ -1,7 +1,7 @@
-package me.neoxy.galaxykit.man;
+package me.neoxy.galaxykit.Man;
 
 import com.moandjiezana.toml.Toml;
-import me.neoxy.galaxykit.io.NeoIO;
+import me.neoxy.galaxykit.IO.NeoIO;
 import org.slf4j.Logger;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package me.neoxy.galaxykit;
 
 import com.moandjiezana.toml.Toml;
-import me.neoxy.galaxykit.io.NeoIO;
+import me.neoxy.galaxykit.IO.NeoIO;
 
 import java.util.List;
 
