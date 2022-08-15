@@ -1,8 +1,24 @@
 package me.neoxy.galaxykit;
 
 public class i18n {
-    //msg1 - No permis
-    //msg2 -
-    //msg3 -
-    //msg4 -
+    // info1 - Init
+    // error1 - Perm limited
+
+    private String language = "en-US";
+
+    public void i18n(String lang) {
+        switch (lang) {
+            case "en-US":
+                break;
+            case "zh-CN":
+                language = lang;
+                break;
+            default:
+                break;
+        }
+    }
+
+    public String loadString(String key) {
+        return "none";
+    }
 }

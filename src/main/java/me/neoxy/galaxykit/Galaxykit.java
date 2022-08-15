@@ -67,6 +67,7 @@ public class Galaxykit {
         }
         if (preServer == null) {
             //不存在上一个服务器
+            //TODO 配置文件
             String m = String.format("[%s]%s joined %s",
                     nowServer,
                     player.getUsername(),
@@ -76,6 +77,7 @@ public class Galaxykit {
             player.sendMessage(Component.text(m));
 
         } else {
+            //TODO 配置文件
             String m = String.format("[%s]%s switched %s from %s",
                     nowServer,
                     player.getUsername(),
@@ -106,8 +108,10 @@ public class Galaxykit {
         if (event.getCommandSource() instanceof ConsoleCommandSource) {
             //Console execute command
         } else if (event.getCommandSource() instanceof Player) {
-            //Player execute command
-            //TODO 权限控制从这里开始
+            //Player execute command"
+            if (((Player) event.getCommandSource()).getCurrentServer().toString() == "Mirror") {
+
+            }
             PermissionControl pc = new PermissionControl(logger);
             String groupName = (pc.checkGroupByUsername("username"));
             Boolean status = (pc.checkAvaByGroupAndCmd(groupName, new CommandMan().Analyze(event.getCommand())));

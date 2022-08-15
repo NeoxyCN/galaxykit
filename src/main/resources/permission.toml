@@ -1,9 +1,5 @@
 default = [
-    "help",
-    "tp",
 ]
 
 admin = [
-    "ban",
-    "banip",
 ]

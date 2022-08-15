@@ -1,3 +1,4 @@
 auto-update = true
 channel = "stable"
 language = "zh-CN"
+disable-server = []
