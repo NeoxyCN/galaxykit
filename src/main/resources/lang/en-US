@@ -1,5 +1,5 @@
 GalaxyKit has been loaded.
 You don not have the permission to execute this command.
-No available config files, several files has been created.
-{Username} has been moved to {GroupName}.
-Created new group {GroupName}.
+[%s]%s joined %s
+[%s]%s switched %s from %s
+[ALLSTARS]%s left server

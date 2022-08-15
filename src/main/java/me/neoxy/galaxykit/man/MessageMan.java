@@ -1,4 +1,4 @@
-package me.neoxy.galaxykit;
+package me.neoxy.galaxykit.man;
 
 import com.velocitypowered.api.command.CommandSource;
 import net.kyori.adventure.text.Component;

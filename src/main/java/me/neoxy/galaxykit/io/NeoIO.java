@@ -1,11 +1,10 @@
-package me.neoxy.galaxykit;
+package me.neoxy.galaxykit.io;
 
 import com.moandjiezana.toml.Toml;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.util.SimpleTimeZone;
 
 public class NeoIO {
     public String loadFile(String path) {
@@ -38,6 +37,5 @@ public class NeoIO {
     }
 
     public void loadLang(String path) {
-
     }
 }

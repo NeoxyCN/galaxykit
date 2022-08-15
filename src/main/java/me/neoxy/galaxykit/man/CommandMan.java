@@ -1,4 +1,4 @@
-package me.neoxy.galaxykit;
+package me.neoxy.galaxykit.man;
 
 public class CommandMan {
     public String Analyze(String command) {

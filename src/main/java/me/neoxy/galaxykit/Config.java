@@ -1,8 +1,8 @@
 package me.neoxy.galaxykit;
 
 import com.moandjiezana.toml.Toml;
+import me.neoxy.galaxykit.io.NeoIO;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Config {

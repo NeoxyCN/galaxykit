@@ -4,20 +4,23 @@ import com.google.inject.Inject;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.command.CommandExecuteEvent;
 import com.velocitypowered.api.event.connection.DisconnectEvent;
-import com.velocitypowered.api.event.player.PlayerChatEvent;
 import com.velocitypowered.api.event.player.ServerConnectedEvent;
 import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
 import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.proxy.ConsoleCommandSource;
 import com.velocitypowered.api.proxy.Player;
 import com.velocitypowered.api.proxy.ProxyServer;
+import me.neoxy.galaxykit.man.CommandMan;
+import me.neoxy.galaxykit.man.MessageMan;
+import me.neoxy.galaxykit.man.PermissionControl;
+import me.neoxy.galaxykit.utils.i18n;
 import net.kyori.adventure.text.Component;
 import org.slf4j.Logger;
 
 @Plugin(
         id = "galaxykit",
         name = "GalaxyKit",
-        version = "1.0.2",
+        version = "1.1.0",
         description = "Plugin for ALLSTARS S3",
         authors = {"Neoxy"}
 )
