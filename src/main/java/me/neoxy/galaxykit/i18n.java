@@ -6,7 +6,7 @@ public class i18n {
 
     private String language = "en-US";
 
-    public void i18n(String lang) {
+    public i18n(String lang) {
         switch (lang) {
             case "en-US":
                 break;

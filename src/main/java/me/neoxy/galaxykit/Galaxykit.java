@@ -101,24 +101,25 @@ public class Galaxykit {
 
     @Subscribe
     public void onCommandExecute(CommandExecuteEvent event) {
-
         //logger.info();
         //PermissionControl ppp = new PermissionControl(logger);
         //logger.info(ppp.checkCmdByGroup("admin"));
         if (event.getCommandSource() instanceof ConsoleCommandSource) {
             //Console execute command
         } else if (event.getCommandSource() instanceof Player) {
-            //Player execute command"
-            if (((Player) event.getCommandSource()).getCurrentServer().toString() == "Mirror") {
-
-            }
-            PermissionControl pc = new PermissionControl(logger);
-            String groupName = (pc.checkGroupByUsername("username"));
-            Boolean status = (pc.checkAvaByGroupAndCmd(groupName, new CommandMan().Analyze(event.getCommand())));
-            if (!status) {
-                event.setResult(CommandExecuteEvent.CommandResult.denied());
-                MessageMan m = new MessageMan();
-                m.sendPlayerMessage(event.getCommandSource(), "Your command has been denied, becaused you don not have the permission to do that.");
+            String playerServer = ((Player) event.getCommandSource()).getCurrentServer().toString();
+            //Player execute command
+            Config conf = new Config();
+            if (!(conf.loadList("disable-server").contains(playerServer))) {
+                //...乱
+                PermissionControl pc = new PermissionControl(logger);
+                String groupName = (pc.checkGroupByUsername("username"));
+                Boolean status = (pc.checkAvaByGroupAndCmd(groupName, new CommandMan().Analyze(event.getCommand())));
+                if (!status) {
+                    event.setResult(CommandExecuteEvent.CommandResult.denied());
+                    MessageMan m = new MessageMan();
+                    m.sendPlayerMessage(event.getCommandSource(), (new i18n((new Config()).loadKey("")).loadString("error1")));
+                }
             }
         }
     }

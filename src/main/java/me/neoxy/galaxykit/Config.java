@@ -14,7 +14,7 @@ public class Config {
         return t;
     }
 
-    public void Config() {
+    public Config() {
         t = new NeoIO().loadToml(path);
     }
 
@@ -22,9 +22,6 @@ public class Config {
     public String loadKey(String keyName) {
         try {
             switch (keyName) {
-                case "disable-sevrer":
-                    List<Object> list = t.getList("disable-server");
-                    break;
                 case "auto-update":
                     break;
                 case "language":
@@ -42,9 +39,9 @@ public class Config {
         List<Object> List = null;
         try {
             switch (keyName) {
-                case "disable-sevrer":
+                case "disable-server":
                     List = t.getList("disable-server");
-                    break;
+                    return List;
             }
         } catch (Exception e) {
 
