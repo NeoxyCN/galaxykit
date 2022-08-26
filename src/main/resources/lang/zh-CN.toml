@@ -1,0 +1,2 @@
+plugin-init = "GalaxyKit已被加载"
+error-permlimit = "你没有权限执行该命令"

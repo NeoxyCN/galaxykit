@@ -121,7 +121,7 @@ public class Galaxykit {
                 if (!status) {
                     event.setResult(CommandExecuteEvent.CommandResult.denied());
                     MessageMan m = new MessageMan();
-                    m.sendPlayerMessage(event.getCommandSource(), (new i18n((new Config()).loadKey("")).loadString("error1")));
+                    m.sendPlayerMessage(event.getCommandSource(), (new i18n((new Config()).loadKey("")).loadLang("error1")));
                 }
             }
         }

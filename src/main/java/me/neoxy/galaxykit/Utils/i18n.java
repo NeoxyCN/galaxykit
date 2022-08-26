@@ -29,7 +29,7 @@ public class i18n {
         }
     }
 
-    public String loadString(String key) {
+    public String loadStringLegacy(String key) {
         // info1->line1
         //先得到info1在第几行
         //然后Line=num就行了
@@ -58,5 +58,9 @@ public class i18n {
             throw new RuntimeException(e);
         }
         return "none";
+    }
+
+    public String loadLang(String key) {
+        return "";
     }
 }

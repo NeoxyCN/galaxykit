@@ -7,6 +7,6 @@ public class Initialization {
     public static void Init(Logger logger) {
         Config conf = new Config();
         i18n i = new i18n(conf.loadKey("language"));
-        logger.info(i.loadString("info1"));
+        logger.info(i.loadLang("info1"));
     }
 }
